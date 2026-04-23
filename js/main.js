@@ -151,9 +151,7 @@ function actualizarPaginacion(paginacion) {
 }
 
 function abrirDetalle(id) {
-    // Por ahora solo un alert para confirmar que el click funciona.
-    // En el Bloque 17 implementamos el modal completo.
-    alert(`Click en serie con ID ${id} — modal se implementa en el siguiente paso`);
+    Detalle.mostrar(id);
 }
 
 /**
