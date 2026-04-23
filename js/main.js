@@ -1,29 +1,5 @@
-// Script de prueba: hace fetch al backend y muestra la respuesta.
+// Este archivo se va a poblar en el Bloque 16.
+// Por ahora solo verificamos que el HTML y CSS cargan bien.
 
-async function testBackend() {
-    const statusEl = document.getElementById("status");
-    const responseEl = document.getElementById("response");
-
-    try {
-        statusEl.textContent = "Conectando al backend...";
-        statusEl.className = "loading";
-
-        const res = await fetch(CONFIG.API_URL + "/");
-
-        if (!res.ok) {
-            throw new Error("HTTP " + res.status);
-        }
-
-        const data = await res.json();
-
-        statusEl.textContent = "✓ Conexión exitosa";
-        statusEl.className = "success";
-        responseEl.textContent = JSON.stringify(data, null, 2);
-    } catch (err) {
-        statusEl.textContent = "✗ Error al conectar";
-        statusEl.className = "error";
-        responseEl.textContent = err.message;
-    }
-}
-
-document.addEventListener("DOMContentLoaded", testBackend);
+console.log("Series Tracker — Frontend cargado");
+console.log("API URL:", CONFIG.API_URL);

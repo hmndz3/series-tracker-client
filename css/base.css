@@ -1,0 +1,74 @@
+/* Reset suave + estilos base del documento */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuente-ui);
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: inherit;
+}
+
+input,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+a {
+    color: var(--color-acento);
+    text-decoration: none;
+}
+
+/* Scrollbar estilizada (solo Webkit, degrada bien en Firefox) */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-fondo);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-borde);
+    border-radius: var(--radio-full);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-borde-claro);
+}
+
+/* Utilidades comunes */
+.oculto {
+    display: none !important;
+}
+
+.contenedor {
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: 0 var(--espacio-lg);
+}

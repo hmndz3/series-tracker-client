@@ -1,0 +1,71 @@
+/* Variables CSS que definen el sistema visual.*/
+:root {
+    /* ---- Paleta base ---- */
+    --color-fondo:            #14171c;
+    --color-superficie:       #1e232b;
+    --color-superficie-alta:  #262d37;
+    --color-borde:            #2f3744;
+    --color-borde-claro:      #404b5c;
+
+    /* ---- Texto ---- */
+    --color-texto:            #e8ecf1;
+    --color-texto-secundario: #9098a8;
+    --color-texto-tenue:      #6b7280;
+
+    /* ---- Acento y estados ---- */
+    --color-acento:           #5b8fc4;
+    --color-acento-hover:     #6fa0d4;
+    --color-acento-suave:     rgba(91, 143, 196, 0.12);
+
+    --color-exito:            #4caf7a;
+    --color-exito-suave:      rgba(76, 175, 122, 0.12);
+    --color-error:            #e57373;
+    --color-error-suave:      rgba(229, 115, 115, 0.12);
+    --color-advertencia:      #e8b04e;
+    --color-advertencia-suave:rgba(232, 176, 78, 0.12);
+
+    /* ---- Estados de series (semánticos) ---- */
+    --color-estado-viendo:     #5b8fc4;
+    --color-estado-completada: #4caf7a;
+    --color-estado-pendiente:  #9098a8;
+    --color-estado-abandonada: #e57373;
+
+    /* ---- Espaciado (escala en rem para accesibilidad) ---- */
+    --espacio-xs:  0.25rem;  /*  4px */
+    --espacio-sm:  0.5rem;   /*  8px */
+    --espacio-md:  1rem;     /* 16px */
+    --espacio-lg:  1.5rem;   /* 24px */
+    --espacio-xl:  2rem;     /* 32px */
+    --espacio-2xl: 3rem;     /* 48px */
+
+    /* ---- Tipografía ---- */
+    --fuente-ui:     system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --fuente-titulo: "Georgia", "Times New Roman", serif;
+    --fuente-mono:   "Consolas", "Monaco", monospace;
+
+    --texto-xs:    0.75rem;
+    --texto-sm:    0.875rem;
+    --texto-base:  1rem;
+    --texto-lg:    1.125rem;
+    --texto-xl:    1.25rem;
+    --texto-2xl:   1.5rem;
+    --texto-3xl:   2rem;
+
+    /* ---- Bordes y radios ---- */
+    --radio-sm:  4px;
+    --radio-md:  8px;
+    --radio-lg:  12px;
+    --radio-full: 9999px;
+
+    /* ---- Sombras ---- */
+    --sombra-sm:  0 1px 2px rgba(0, 0, 0, 0.2);
+    --sombra-md:  0 4px 12px rgba(0, 0, 0, 0.3);
+    --sombra-lg:  0 12px 32px rgba(0, 0, 0, 0.4);
+
+    /* ---- Transiciones ---- */
+    --transicion-rapida: 150ms ease;
+    --transicion-media:  250ms ease;
+
+    /* ---- Layout ---- */
+    --ancho-maximo: 1280px;
+}
