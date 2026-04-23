@@ -1,3 +1,7 @@
+// ====================================================================
+// FORMULARIO - Modal para crear y editar series
+// ====================================================================
+
 const Formulario = {
 
     /**
@@ -30,6 +34,9 @@ const Formulario = {
         }, serie.id);
     },
 
+    /**
+     * Abre el modal del formulario. Si idSerie es null, modo crear; si no, modo editar.
+     */
     _abrir(datos, idSerie) {
         const esEdicion = idSerie !== null;
         const titulo = esEdicion ? "Editar serie" : "Nueva serie";
@@ -142,6 +149,7 @@ const Formulario = {
             await this._enviar(idSerie);
         });
 
+        // Enfocar el primer campo automáticamente
         setTimeout(() => document.getElementById("campo-titulo").focus(), 100);
     },
 
@@ -152,9 +160,11 @@ const Formulario = {
         const btnGuardar = document.getElementById("btn-guardar");
         const errorGeneral = document.getElementById("error-general");
 
+        // Limpiar errores previos
         errorGeneral.textContent = "";
         document.getElementById("error-titulo").textContent = "";
 
+        // Recolectar valores
         const datos = {
             titulo:      document.getElementById("campo-titulo").value.trim(),
             descripcion: document.getElementById("campo-descripcion").value.trim() || null,
@@ -165,23 +175,28 @@ const Formulario = {
             episodios_vistos: this._numeroOpcional("campo-episodios-vistos") ?? 0
         };
 
+        // Validación rápida en cliente (además de la del servidor)
         if (!datos.titulo) {
             document.getElementById("error-titulo").textContent = "El título es obligatorio";
             return;
         }
 
+        // Deshabilitar botón para evitar doble envío
         btnGuardar.disabled = true;
         btnGuardar.textContent = "Guardando...";
 
         try {
             if (idSerie === null) {
                 await API.crearSerie(datos);
+                Modal.cerrar();
+                await cargarSeries();
+                Toast.exito("Serie creada correctamente");
             } else {
                 await API.actualizarSerie(idSerie, datos);
+                Modal.cerrar();
+                await cargarSeries();
+                Toast.exito("Serie actualizada correctamente");
             }
-
-            Modal.cerrar();
-            await cargarSeries(); 
         } catch (err) {
             console.error(err);
             errorGeneral.textContent = err.message;
@@ -190,6 +205,9 @@ const Formulario = {
         }
     },
 
+    /**
+     * Lee un input numérico. Retorna null si está vacío, número si tiene valor.
+     */
     _numeroOpcional(idCampo) {
         const valor = document.getElementById(idCampo).value;
         if (valor === "" || valor === null) return null;

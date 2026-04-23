@@ -39,6 +39,7 @@ async function cargarSeries() {
         const respuesta = await API.listarSeries(estado.filtros);
         const series = respuesta.datos;
         estado.totalPaginas = respuesta.paginacion.total_paginas;
+        actualizarResumen(respuesta.paginacion.total);
 
         if (series.length === 0) {
             mostrarEstado("vacio");
@@ -226,6 +227,33 @@ elementos.btnNueva.addEventListener("click", () => {
 elementos.btnExportar.addEventListener("click", () => {
     Exportar.aCSV();
 });
+
+/**
+ * Actualiza el texto "Mostrando X series" / "X resultados para 'query'".
+ */
+function actualizarResumen(total) {
+    const resumen = document.getElementById("resumen-resultados");
+    
+    if (estado.filtros.q) {
+        resumen.innerHTML = `
+            <span class="resumen-resultados__destacado">${total}</span> 
+            ${total === 1 ? "resultado" : "resultados"} 
+            para "${escaparHTML(estado.filtros.q)}"
+            <a class="resumen-resultados__limpiar" id="limpiar-busqueda">limpiar</a>
+        `;
+
+        document.getElementById("limpiar-busqueda").addEventListener("click", () => {
+            elementos.buscador.value = "";
+            estado.filtros.q = "";
+            estado.filtros.page = 1;
+            cargarSeries();
+        });
+    } else {
+        resumen.textContent = total > 0 
+            ? `${total} ${total === 1 ? "serie" : "series"} en total` 
+            : "";
+    }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Series Tracker iniciado");
