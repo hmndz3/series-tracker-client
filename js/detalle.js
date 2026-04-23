@@ -99,8 +99,8 @@ const Detalle = {
 
     _registrarAcciones(serie) {
         document.getElementById("btn-detalle-editar").addEventListener("click", () => {
-            // Se implementa en el Bloque 18
-            alert(`Editar serie ${serie.id} — formulario viene en el Bloque 18`);
+            Modal.cerrar();       
+            Formulario.editar(serie); 
         });
 
         document.getElementById("btn-detalle-eliminar").addEventListener("click", () => {

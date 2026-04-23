@@ -220,7 +220,7 @@ elementos.btnPaginaSiguiente.addEventListener("click", () => {
 
 // Botones que se implementan después
 elementos.btnNueva.addEventListener("click", () => {
-    alert("Formulario de nueva serie — se implementa en el Bloque 18");
+    Formulario.crear();
 });
 
 elementos.btnExportar.addEventListener("click", () => {
