@@ -224,7 +224,7 @@ elementos.btnNueva.addEventListener("click", () => {
 });
 
 elementos.btnExportar.addEventListener("click", () => {
-    alert("Exportar CSV — se implementa en el Bloque 20");
+    Exportar.aCSV();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
